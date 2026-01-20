@@ -8,8 +8,48 @@ const syne = Syne({ subsets: ['latin'], variable: '--font-syne' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'ChaosForCurio | Creative Developer',
-  description: 'Portfolio of ChaosForCurio - Production Ready Web Experiences',
+  title: {
+    default: 'ChaosForCurio | Creative Developer',
+    template: '%s | ChaosForCurio',
+  },
+  description: 'Portfolio of ChaosForCurio - Production Ready Web Experiences. Specializing in 3D interactions, animations, and modern web development.',
+  keywords: ['Creative Developer', 'Web Design', 'Next.js', 'React', 'Three.js', 'WebGL', 'Portfolio'],
+  authors: [{ name: 'ChaosForCurio' }],
+  creator: 'ChaosForCurio',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://chaosforcurio.com',
+    title: 'ChaosForCurio | Creative Developer',
+    description: 'Portfolio of ChaosForCurio - Production Ready Web Experiences',
+    siteName: 'ChaosForCurio',
+    images: [
+      {
+        url: '/og-image.jpg', // Ensure this image exists in public folder
+        width: 1200,
+        height: 630,
+        alt: 'ChaosForCurio Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ChaosForCurio | Creative Developer',
+    description: 'Portfolio of ChaosForCurio - Production Ready Web Experiences',
+    images: ['/og-image.jpg'],
+    creator: '@ChaosForCurio',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+}
+
+export const viewport = {
+  themeColor: '#0a0a0a',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
