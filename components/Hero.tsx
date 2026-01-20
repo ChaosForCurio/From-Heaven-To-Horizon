@@ -1,7 +1,7 @@
 'use client'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useTransform, useSpring } from 'framer-motion'
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 const Scene = dynamic(() => import('./Scene'), { ssr: false })
 
@@ -30,8 +30,6 @@ const SplitText = ({ children, className, delay = 0 }: { children: string, class
 }
 
 export default function Hero() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
     // Smooth mouse movement for spotlight
     const mouseX = useSpring(0, { stiffness: 50, damping: 20 })
     const mouseY = useSpring(0, { stiffness: 50, damping: 20 })
@@ -39,33 +37,12 @@ export default function Hero() {
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             const { clientX, clientY } = e
-            // Update state for non-spring usage if needed, but springs are better for visuals
             mouseX.set(clientX)
             mouseY.set(clientY)
         }
         window.addEventListener('mousemove', handleMouseMove)
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [mouseX, mouseY])
-
-    const x = useSpring(0, { stiffness: 100, damping: 15 })
-    const y = useSpring(0, { stiffness: 100, damping: 15 })
-
-    const handleMagneticMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const { clientX, clientY } = e
-        const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
-        const centerX = left + width / 2
-        const centerY = top + height / 2
-        const distanceX = clientX - centerX
-        const distanceY = clientY - centerY
-
-        x.set(distanceX * 0.35)
-        y.set(distanceY * 0.35)
-    }
-
-    const handleMagneticLeave = () => {
-        x.set(0)
-        y.set(0)
-    }
 
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0a0a0a]">

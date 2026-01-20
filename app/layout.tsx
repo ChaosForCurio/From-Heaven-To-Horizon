@@ -8,6 +8,7 @@ const syne = Syne({ subsets: ['latin'], variable: '--font-syne' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://chaosforcurio.com'),
   title: {
     default: 'ChaosForCurio | Creative Developer',
     template: '%s | ChaosForCurio',

@@ -109,8 +109,6 @@ function Piano() {
             { type: 'w' }, { type: 'b' }, { type: 'w' }
         ]
 
-        const currentX = -((pattern.length * WHITE_KEY_WIDTH) / 2) // Center logic roughly
-
         // Improve centering logic
         const keyObjects: KeyProps[] = []
         let whiteKeyOffset = 0
