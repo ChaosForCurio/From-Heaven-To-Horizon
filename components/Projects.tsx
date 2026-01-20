@@ -84,6 +84,14 @@ export default function Projects() {
                                 alt={project.name}
                                 fill
                                 className="object-cover"
+                                onError={(e) => {
+                                    // Fallback logic could be added here if needed, 
+                                    // but at least avoiding crash or showing alt text is default behavior.
+                                    // Next.js Image component handles src errors gracefully by just not rendering if src is empty,
+                                    // but for broken URLs, we can force it to hiding or showing a placeholder.
+                                    const target = e.target as HTMLImageElement;
+                                    target.style.display = 'none'; // Simple hiding for now
+                                }}
                             />
                         </div>
                     ))}

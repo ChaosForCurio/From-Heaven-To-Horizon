@@ -1,7 +1,7 @@
 'use client'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Float, RoundedBox, Html, Environment, ContactShadows } from '@react-three/drei'
-import { useState, useRef, ReactNode } from 'react'
+import { useState, useRef, ReactNode, Suspense } from 'react'
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
 import * as THREE from 'three'
 
@@ -94,26 +94,28 @@ export default function Socials3D() {
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={10} castShadow />
                 <pointLight position={[-10, -10, -10]} intensity={5} color="#455CE9" />
 
-                <ResponsiveGroup>
-                    <SocialKey
-                        position={[-2, 0, 0]}
-                        icon={<FaGithub />}
-                        url="https://github.com/ChaosForCurio"
-                    />
-                    <SocialKey
-                        position={[0, 0, 0]}
-                        icon={<FaLinkedin />}
-                        url="#"
-                    />
-                    <SocialKey
-                        position={[2, 0, 0]}
-                        icon={<FaXTwitter />}
-                        url="#"
-                    />
-                </ResponsiveGroup>
+                <Suspense fallback={null}>
+                    <ResponsiveGroup>
+                        <SocialKey
+                            position={[-2, 0, 0]}
+                            icon={<FaGithub />}
+                            url="https://github.com/ChaosForCurio"
+                        />
+                        <SocialKey
+                            position={[0, 0, 0]}
+                            icon={<FaLinkedin />}
+                            url="#"
+                        />
+                        <SocialKey
+                            position={[2, 0, 0]}
+                            icon={<FaXTwitter />}
+                            url="#"
+                        />
+                    </ResponsiveGroup>
 
-                <ContactShadows position={[0, -2, 0]} opacity={0.4} scale={15} blur={2.5} far={4} color="#000000" />
-                <Environment preset="studio" />
+                    <ContactShadows position={[0, -2, 0]} opacity={0.4} scale={15} blur={2.5} far={4} color="#000000" />
+                    <Environment preset="studio" />
+                </Suspense>
             </Canvas>
         </div>
     )

@@ -13,7 +13,14 @@ const BLACK_KEY_WIDTH = 0.6
 const BLACK_KEY_HEIGHT = 2.5
 const BLACK_KEY_DEPTH = 0.6
 
-function Key({ position, color, isBlack = false, index }: any) {
+interface KeyProps {
+    position: [number, number, number]
+    color: string
+    isBlack: boolean
+    index: number
+}
+
+function Key({ position, color, isBlack = false, index }: KeyProps) {
     const mesh = useRef<THREE.Mesh>(null)
     const [hovered, setHover] = useState(false)
 
@@ -105,7 +112,7 @@ function Piano() {
         let currentX = -((pattern.length * WHITE_KEY_WIDTH) / 2) // Center logic roughly
 
         // Improve centering logic
-        const keyObjects: any[] = []
+        const keyObjects: KeyProps[] = []
         let whiteKeyOffset = 0
 
         pattern.forEach((k, i) => {
@@ -134,7 +141,7 @@ function Piano() {
 
         return keyObjects.map(k => ({
             ...k,
-            position: [k.position[0] - centerOffset, k.position[1], k.position[2] + (k.isBlack ? -BLACK_KEY_HEIGHT / 4 : 0)] // Adjust Z to align fronts roughly? No, piano keys align at back usually or front. Let's align front.
+            position: [k.position[0] - centerOffset, k.position[1], k.position[2] + (k.isBlack ? -BLACK_KEY_HEIGHT / 4 : 0)] as [number, number, number] // Adjust Z to align fronts roughly? No, piano keys align at back usually or front. Let's align front.
         }))
 
     }, [])
