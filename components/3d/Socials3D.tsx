@@ -88,7 +88,7 @@ function SocialKey({ position, icon, url, color = '#1a1a1a' }: SocialKeyProps) {
 
 export default function Socials3D() {
     return (
-        <div className="w-full h-[200px] md:h-[300px] touch-none">
+        <div className="w-full h-[200px] md:h-[300px]">
             <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
                 <ambientLight intensity={0.5} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={10} castShadow />
@@ -100,16 +100,19 @@ export default function Socials3D() {
                             position={[-2, 0, 0]}
                             icon={<FaGithub />}
                             url="https://github.com/ChaosForCurio"
+                            color="#2d333b"
                         />
                         <SocialKey
                             position={[0, 0, 0]}
                             icon={<FaLinkedin />}
-                            url="#"
+                            url="https://www.linkedin.com/in/yourprofile"
+                            color="#0077b5"
                         />
                         <SocialKey
                             position={[2, 0, 0]}
                             icon={<FaXTwitter />}
-                            url="#"
+                            url="https://x.com/yourhandle"
+                            color="#000000"
                         />
                     </ResponsiveGroup>
 

@@ -2,7 +2,10 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Syne, Inter } from 'next/font/google'
 import './globals.css'
-import SmoothScroll from '@/components/SmoothScroll'
+import SmoothScroll from '@/components/providers/SmoothScroll'
+import CustomCursor from '@/components/ui/CustomCursor'
+import Preloader from '@/components/ui/Preloader'
+import Grain from '@/components/ui/Grain'
 
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -40,10 +43,7 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
     creator: '@ChaosForCurio',
   },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.png',
-  },
+
 }
 
 export const viewport = {
@@ -61,7 +61,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${inter.variable}`}>
       <body className="bg-[#0a0a0a] text-[#ededed] antialiased font-sans selection:bg-[#ededed] selection:text-[#0a0a0a] overflow-x-hidden">
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <Preloader />
+          <CustomCursor />
+          <Grain />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   )

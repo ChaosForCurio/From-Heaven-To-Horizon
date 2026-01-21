@@ -1,10 +1,10 @@
-import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import Projects from '@/components/Projects'
-import ProjectSlider from '@/components/ProjectSlider'
-import Skills from '@/components/Skills'
-import About from '@/components/About'
-import Contact from '@/components/Contact'
+import Header from '@/components/layout/Header'
+import Hero from '@/components/sections/Hero'
+import Projects from '@/components/sections/Projects'
+import ProjectSlider from '@/components/ui/ProjectSlider'
+import Skills from '@/components/sections/Skills'
+import About from '@/components/sections/About'
+import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   return (

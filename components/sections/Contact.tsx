@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 
-const Socials3D = dynamic(() => import('./Socials3D'), { ssr: false })
+const Socials3D = dynamic(() => import('../3d/Socials3D'), { ssr: false })
 
 export default function Contact() {
     return (
