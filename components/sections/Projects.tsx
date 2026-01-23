@@ -4,10 +4,10 @@ import Image from 'next/image'
 import gsap from 'gsap'
 
 const projects = [
-    { name: 'Ecommerce Platform', cat: 'Development', src: '/image/bill.jpg' },
-    { name: 'Portfolio 2024', cat: 'Design & Dev', src: '/image/bill.jpg' },
-    { name: 'AI Dashboard', cat: 'Interaction', src: '/image/bill.jpg' },
-    { name: 'Luxury Brand', cat: 'WebGL', src: '/image/bill.jpg' }
+    { name: 'Xieriee', cat: 'Interactive', src: '/image/xieiree.png' },
+    { name: 'Kandban Board', cat: 'Design & Dev', src: '/image/kandban.png' },
+    { name: 'AI Dashboard', cat: 'Interaction', src: '/image/xieiree.png' },
+    { name: 'Luxury Brand', cat: 'WebGL', src: '/image/dior.png' }
 ]
 
 export default function Projects() {
